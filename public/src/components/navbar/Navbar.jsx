@@ -11,10 +11,29 @@ const Navbar = () => {
   const [isContesxtMenuVisible, setIsContesxtMenuVisible] = useState(false);
   const contextMenuOptions = [{
     name: "Login",
-    callback: () => {
+    callBack: () => {
       setIsContesxtMenuVisible(false)
     }
-  }]
+  },
+  {
+    name: "Signup",
+    callBack: () => {
+      setIsContesxtMenuVisible(false)
+    }
+  },
+  {
+    name: "D3Properties",
+    callBack: () => {
+      setIsContesxtMenuVisible(false)
+    }
+  },
+  {
+    name: "Help",
+    callBack: () => {
+      setIsContesxtMenuVisible(false)
+    }
+  }
+  ]
 
   return (
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 shadow-[0_0_15px_-5px_rgba(0,0,0,0.15)]">
@@ -32,7 +51,7 @@ const Navbar = () => {
             <li className="cursor-pointer">
               <FiGlobe></FiGlobe>
             </li>
-            <li className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500">
+            <li className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500" onClick={() => {setIsContesxtMenuVisible(!isContesxtMenuVisible)}}>
               <RxHamburgerMenu></RxHamburgerMenu>
               <span>
                 <Image src='/empty-profile.png' alt="profile" height={30} width={30}/>
