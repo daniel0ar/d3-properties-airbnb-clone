@@ -5,19 +5,25 @@ import { FiGlobe } from 'react-icons/fi'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import Image from "next/image";
 import ContextMenu from "../common/ContextMenu";
+import {useAppStore} from "airbnb/store/store"
 
 const Navbar = () => {
 
+  const {setAuthModal} = useAppStore();
+
   const [isContesxtMenuVisible, setIsContesxtMenuVisible] = useState(false);
+  
   const contextMenuOptions = [{
     name: "Login",
     callBack: () => {
+      setAuthModal();
       setIsContesxtMenuVisible(false)
     }
   },
   {
     name: "Signup",
     callBack: () => {
+      setAuthModal();
       setIsContesxtMenuVisible(false)
     }
   },
@@ -46,7 +52,7 @@ const Navbar = () => {
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
             <li className="cursor-pointer">
-              <span>D3properties your home</span>
+              <span>Sell on D3 Properties</span>
             </li>
             <li className="cursor-pointer">
               <FiGlobe></FiGlobe>
