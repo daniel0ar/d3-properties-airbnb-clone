@@ -9,7 +9,7 @@ import {useAppStore} from "airbnb/store/store"
 
 const Navbar = () => {
 
-  const {setAuthModal} = useAppStore();
+  const {setAuthModal, userInfo, setUserInfo} = useAppStore();
 
   const [isContesxtMenuVisible, setIsContesxtMenuVisible] = useState(false);
   
@@ -17,28 +17,75 @@ const Navbar = () => {
     name: "Login",
     callBack: () => {
       setAuthModal();
-      setIsContesxtMenuVisible(false)
+      setIsContesxtMenuVisible(false);
     }
   },
   {
     name: "Signup",
     callBack: () => {
       setAuthModal();
-      setIsContesxtMenuVisible(false)
+      setIsContesxtMenuVisible(false);
     }
   },
   {
     name: "D3Properties",
     callBack: () => {
-      setIsContesxtMenuVisible(false)
+      setIsContesxtMenuVisible(false);
     }
   },
   {
     name: "Help",
     callBack: () => {
-      setIsContesxtMenuVisible(false)
+      setIsContesxtMenuVisible(false);
     }
   }
+  ];
+
+  const authenticatedMenuOptions = [
+    {
+      name: "Messages",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Notifications",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Trips",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Wishlists",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Manage Listings",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Help",
+      callBack: () => {
+        setIsContesxtMenuVisible(false);
+      }
+    },
+    {
+      name: "Logout",
+      callBack: () => {
+        setUserInfo(null);
+        setIsContesxtMenuVisible(false);
+        localStorage.clear();
+      }
+    },
   ]
 
   return (
@@ -59,9 +106,18 @@ const Navbar = () => {
             </li>
             <li className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500" onClick={() => {setIsContesxtMenuVisible(!isContesxtMenuVisible)}}>
               <RxHamburgerMenu></RxHamburgerMenu>
-              <span>
-                <Image src='/empty-profile.png' alt="profile" height={30} width={30}/>
-              </span>
+              {
+                userInfo ? (
+                  <span className="flex justify-center items-center bg-black text-white h-7 w-7 text-sm rounded-full">
+                    {userInfo.firstName?.split("").shift().toUpperCase()}
+                  </span>
+                ):
+                (
+                  <span>
+                    <Image src='/empty-profile.png' alt="profile" height={30} width={30}/>
+                  </span>
+                )
+              }
             </li>
           </ul>
         </div>
@@ -74,7 +130,7 @@ const Navbar = () => {
             x: window.innerWidth - 250,
             y: 70
           }}
-          options={contextMenuOptions}>
+          options={userInfo? authenticatedMenuOptions : contextMenuOptions}>
         </ContextMenu>}
     </header>
   );
