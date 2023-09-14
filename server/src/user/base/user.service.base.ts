@@ -34,6 +34,7 @@ export class UserServiceBase {
   async findOne<T extends Prisma.UserFindUniqueArgs>(
     args: Prisma.SelectSubset<T, Prisma.UserFindUniqueArgs>
   ): Promise<User | null> {
+    console.log(args);
     return this.prisma.user.findUnique(args);
   }
   async create<T extends Prisma.UserCreateArgs>(

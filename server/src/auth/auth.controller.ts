@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Req } from "@nestjs/common";
 import { ApiBearerAuth, ApiOkResponse, ApiTags } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
-import { CheckUserValues, Credentials, SignupCredentials } from "../auth/Credentials";
+import { CheckUserValues, Credentials, SignupCredentials } from "./Credentials";
 import { UserInfo } from "./UserInfo";
 import { User } from "src/user/base/User";
 import { Request } from "express";

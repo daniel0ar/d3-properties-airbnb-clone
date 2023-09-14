@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import { IoMdClose } from 'react-icons/io'
 import FormInput from "../common/FormInput";
 import {useAppStore} from 'airbnb/store/store';
-import { checkUser } from "airbnb/lib/auth";
+import { checkUser, signup } from "airbnb/lib/auth";
 
 
 const AuthModal = () => {
@@ -27,7 +27,10 @@ const AuthModal = () => {
   };
 
   const handleSignup = async () => {
-
+    if(email && password && firstName && lastName) {
+      const data = await signup(email, password, firstName, lastName);
+      setAuthModal();
+    }
   };
 
   return (

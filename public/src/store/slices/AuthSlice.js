@@ -3,4 +3,4 @@ export const createAuthSlice = (set, get) => ({
     setAuthModal: () => {
         set({ isAuthModalOpen: !get().isAuthModalOpen})
     }
-})
+});
