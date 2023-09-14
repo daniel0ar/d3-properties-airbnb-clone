@@ -3,6 +3,8 @@ import React, {useState} from "react";
 import { IoMdClose } from 'react-icons/io'
 import FormInput from "../common/FormInput";
 import {useAppStore} from 'airbnb/store/store';
+import { checkUser } from "airbnb/lib/auth";
+
 
 const AuthModal = () => {
 
@@ -15,7 +17,9 @@ const AuthModal = () => {
   const {setAuthModal} = useAppStore();
 
   const verifyEmail = async () => {
-
+    const data = await checkUser(email);
+    if(!data) setUserFound(false);
+    else setUserFound(true);
   };
 
   const handleLogin = async () => {
@@ -38,7 +42,11 @@ const AuthModal = () => {
                   onClick={()=> setAuthModal()}>
                     <IoMdClose></IoMdClose>
                   </span>
-                  <span>Log in or signup</span>
+                  {
+                    userFound === null ?
+                    <span>Log in or signup</span>:
+                    <span>{userFound === true ? "Log in": "Sign up"} {email}</span>
+                  }
                 </div>
                 <div className="p-5">
                   <h3 className="text-xl pb-5">Welcome to D3 Properties</h3>
