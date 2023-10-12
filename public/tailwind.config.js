@@ -10,6 +10,8 @@ module.exports = {
       backgroundImage: {
         "d3prop-gradient":
           "linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%)",
+        "d3prop-gradient-alt":
+          "linear-gradient(to left,#E61E4D 20%,#E31C5F 80%,#D70466 100%)",
       },
       colors: {
         "d3prop-theme-color": "#FF385C",
