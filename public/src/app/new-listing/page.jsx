@@ -3,9 +3,12 @@ import ListingPlaceType from "airbnb/components/process/ListingPlaceType";
 import ListingTypeSelector from "airbnb/components/process/ListingTypeSelector";
 import Overview from "airbnb/components/process/Overview";
 import PlaceLocation from "airbnb/components/process/PlaceLocation";
+import PlaceDetails from "airbnb/components/process/PlaceDetails";
 import StepOneStarter from "airbnb/components/process/StepOneStarter";
 import AirBnbLogoShort from "airbnb/svg/airbnb-logo-short";
 import React, { useState } from "react";
+import FloorPlan from "airbnb/components/process/FloorPlan";
+import StepTwoStarter from "airbnb/components/process/StepTwoStarter";
 
 const page = () => {
 
@@ -23,6 +26,12 @@ const page = () => {
         return <ListingPlaceType></ListingPlaceType>
       case 4:
         return <PlaceLocation></PlaceLocation>
+      case 5:
+        return <PlaceDetails></PlaceDetails>
+      case 6:
+        return <FloorPlan></FloorPlan>
+      case 7:
+        return <StepTwoStarter></StepTwoStarter> 
     }
   }
 

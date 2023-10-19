@@ -1,38 +1,57 @@
-import React from "react";
-import { Map } from "react-map-gl";
+import React, { useState } from "react";
+import { Map, Marker, GeolocateControl } from "react-map-gl";
 import GeocoderControl from "./geocoder-control";
 import { useAppStore } from "airbnb/store/store";
 
 const PlaceLocation = () => {
 
   const { setMapData, setLocationData } = useAppStore();
+  const [marker, setMarker] = useState({
+    latitude: -2.9001348,
+    longitude: -79.0100997
+  });
 
-  const getResults = ({result}) => {
+  const getResults = ({ result }) => {
 
     const [longitude, latitude] = result?.geometry?.coordinates;
-    
-      const data = {
-        landmark: result?.text,
-        neighborhood: "",
-        postcode: "",
-        locality: "",
-        place: "",
-        district: "",
-        region: "",
-        country: "",
-      }
 
-      result?.context?.forEach(item => {
-        Object.keys(data)?.forEach(key => {
-          if(item?.id?.startsWith(key+".")){
-            data[key] = item?.text;
-          }
-        });
+    const data = {
+      landmark: result?.text,
+      neighborhood: "",
+      postcode: "",
+      locality: "",
+      place: "",
+      district: "",
+      region: "",
+      country: "",
+    }
+
+    result?.context?.forEach(item => {
+      Object.keys(data)?.forEach(key => {
+        if (item?.id?.startsWith(key + ".")) {
+          data[key] = item?.text;
+        }
       });
+    });
 
-      setMapData({ longitude, latitude });
-      setLocationData({...data});
+    setMarker({ longitude, latitude });
+    setMapData({ longitude, latitude });
+    setLocationData({ ...data });
 
+  }
+
+  const handleDragEnd = (e) => {
+    setMapData({
+      longitude: e.viewState.longitude,
+      latitude: e.viewState.latitude
+    });
+  }
+
+  const handleDrag = (e) => {
+    setMarker({
+      longitude: e.viewState.longitude,
+      latitude: e.viewState.latitude
+    });
   }
 
   return (
@@ -52,16 +71,31 @@ const PlaceLocation = () => {
           }}
           mapStyle="mapbox://styles/mapbox/streets-v9"
           mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
+          onDragEnd={(e) => handleDragEnd(e)}
+          onDrag={(e) => handleDrag(e)}
         >
+          <Marker
+            longitude={marker.longitude}
+            latitude={marker.latitude}
+            anchor="bottom"
+            on
+          >
+          </Marker>
           <GeocoderControl
             mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
             position="top-left"
-            marker={true}
-            onLoading={()=>{}}
-            onResults={()=>{}}
+            proximity={marker}
+            onLoading={() => { }}
+            onResults={() => { }}
             onResult={getResults}
-            onError={()=>{}}>
+            onError={() => { }}>
           </GeocoderControl>
+          <GeolocateControl
+            onGeolocate={(e) => 
+              setMarker({
+                latitude: e.coords.latitude,
+                longitude: e.coords.longitude
+              })}/>
         </Map>
       </div>
     </div>
