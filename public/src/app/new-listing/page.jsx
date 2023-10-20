@@ -9,6 +9,7 @@ import AirBnbLogoShort from "airbnb/svg/airbnb-logo-short";
 import React, { useState } from "react";
 import FloorPlan from "airbnb/components/process/FloorPlan";
 import StepTwoStarter from "airbnb/components/process/StepTwoStarter";
+import ProcessAmeneties from "airbnb/components/process/ProcessAmeneties";
 
 const page = () => {
 
@@ -31,7 +32,9 @@ const page = () => {
       case 6:
         return <FloorPlan></FloorPlan>
       case 7:
-        return <StepTwoStarter></StepTwoStarter> 
+        return <StepTwoStarter></StepTwoStarter>
+      case 8:
+        return <ProcessAmeneties></ProcessAmeneties>
     }
   }
 
