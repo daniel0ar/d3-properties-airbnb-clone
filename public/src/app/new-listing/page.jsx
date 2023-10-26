@@ -11,6 +11,11 @@ import FloorPlan from "airbnb/components/process/FloorPlan";
 import StepTwoStarter from "airbnb/components/process/StepTwoStarter";
 import ProcessAmeneties from "airbnb/components/process/ProcessAmeneties";
 import Photos from "airbnb/components/process/Photos";
+import Title from "airbnb/components/process/Title";
+import Description from "airbnb/components/process/Description";
+import StepThreeStarter from "airbnb/components/process/StepThreeStarter";
+import Price from "airbnb/components/process/Price";
+import ListingCreated from "airbnb/components/process/ListingCreated";
 
 const page = () => {
 
@@ -38,6 +43,18 @@ const page = () => {
         return <ProcessAmeneties></ProcessAmeneties>
       case 9:
         return <Photos></Photos>
+      case 10:
+        return <Title></Title>
+      case 11:
+        return <Description></Description>
+      case 12:  
+        return <StepThreeStarter></StepThreeStarter>
+      case 13:
+        return <Price></Price>
+      case 14:
+        return <ListingCreated></ListingCreated>
+      default:
+        return <></>
     }
   }
 
