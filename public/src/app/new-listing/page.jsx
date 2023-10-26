@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import FloorPlan from "airbnb/components/process/FloorPlan";
 import StepTwoStarter from "airbnb/components/process/StepTwoStarter";
 import ProcessAmeneties from "airbnb/components/process/ProcessAmeneties";
+import Photos from "airbnb/components/process/Photos";
 
 const page = () => {
 
@@ -35,6 +36,8 @@ const page = () => {
         return <StepTwoStarter></StepTwoStarter>
       case 8:
         return <ProcessAmeneties></ProcessAmeneties>
+      case 9:
+        return <Photos></Photos>
     }
   }
 

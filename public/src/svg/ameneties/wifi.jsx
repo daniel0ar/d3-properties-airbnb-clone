@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Wifi() {
   return (
-    <div>
       <svg
         id="l_d_4731"
         xmlns="http://www.w3.org/2000/svg"
@@ -11,12 +10,6 @@ export default function Wifi() {
         width={45}
         height={45}
         preserveAspectRatio="xMidYMid meet"
-        style={{
-          width: "100%",
-          height: "100%",
-          transform: "translate3d(0px, 0px, 0px)",
-          contentVisibility: "visible",
-        }}
       >
         <defs id="l_d_4732">
           <clipPath id="__lottie_element_1950">
@@ -101,6 +94,5 @@ export default function Wifi() {
           </g>
         </g>
       </svg>
-    </div>
   );
 }
