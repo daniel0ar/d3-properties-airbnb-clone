@@ -46,11 +46,12 @@ type Listing {
   createdAt: DateTime!
   description: String!
   id: String!
-  listingCreatedBy: String
+  listingCreatedBy: User
   locationData: JSON!
   locationType: String!
   mapData: JSON!
   photos: JSON
+  placeAmeneties: JSON!
   placeSpace: JSON!
   placeType: String!
   price: Float
@@ -62,11 +63,12 @@ type Listing {
 
 input ListingCreateInput {
   description: String!
-  listingCreatedBy: String
+  listingCreatedBy: UserWhereUniqueInput!
   locationData: JSON!
   locationType: String!
   mapData: JSON!
   photos: JSON
+  placeAmeneties: JSON!
   placeSpace: JSON!
   placeType: String!
   price: Float
@@ -75,15 +77,26 @@ input ListingCreateInput {
   wishlists: WishlistCreateNestedManyWithoutListingsInput
 }
 
+input ListingCreateNestedManyWithoutUsersInput {
+  connect: [ListingWhereUniqueInput!]
+}
+
+input ListingListRelationFilter {
+  every: ListingWhereInput
+  none: ListingWhereInput
+  some: ListingWhereInput
+}
+
 input ListingOrderByInput {
   createdAt: SortOrder
   description: SortOrder
   id: SortOrder
-  listingCreatedBy: SortOrder
+  listingCreatedById: SortOrder
   locationData: SortOrder
   locationType: SortOrder
   mapData: SortOrder
   photos: SortOrder
+  placeAmeneties: SortOrder
   placeSpace: SortOrder
   placeType: SortOrder
   price: SortOrder
@@ -93,11 +106,12 @@ input ListingOrderByInput {
 
 input ListingUpdateInput {
   description: String
-  listingCreatedBy: String
+  listingCreatedBy: UserWhereUniqueInput
   locationData: JSON
   locationType: String
   mapData: JSON
   photos: JSON
+  placeAmeneties: JSON
   placeSpace: JSON
   placeType: String
   price: Float
@@ -106,14 +120,21 @@ input ListingUpdateInput {
   wishlists: WishlistUpdateManyWithoutListingsInput
 }
 
+input ListingUpdateManyWithoutUsersInput {
+  connect: [ListingWhereUniqueInput!]
+  disconnect: [ListingWhereUniqueInput!]
+  set: [ListingWhereUniqueInput!]
+}
+
 input ListingWhereInput {
   description: StringFilter
   id: StringFilter
-  listingCreatedBy: StringNullableFilter
+  listingCreatedBy: UserWhereUniqueInput
   locationData: JsonFilter
   locationType: StringFilter
   mapData: JsonFilter
   photos: JsonFilter
+  placeAmeneties: JsonFilter
   placeSpace: JsonFilter
   placeType: StringFilter
   price: IntNullableFilter
@@ -209,12 +230,14 @@ type Trip {
   createdAt: DateTime!
   id: String!
   listing: Listing
+  tripInfo: JSON!
   updatedAt: DateTime!
   user: User
 }
 
 input TripCreateInput {
   listing: ListingWhereUniqueInput!
+  tripInfo: JSON!
   user: UserWhereUniqueInput!
 }
 
@@ -236,12 +259,14 @@ input TripOrderByInput {
   createdAt: SortOrder
   id: SortOrder
   listingId: SortOrder
+  tripInfo: SortOrder
   updatedAt: SortOrder
   userId: SortOrder
 }
 
 input TripUpdateInput {
   listing: ListingWhereUniqueInput
+  tripInfo: JSON
   user: UserWhereUniqueInput
 }
 
@@ -260,6 +285,7 @@ input TripUpdateManyWithoutUsersInput {
 input TripWhereInput {
   id: StringFilter
   listing: ListingWhereUniqueInput
+  tripInfo: JsonFilter
   user: UserWhereUniqueInput
 }
 
@@ -272,6 +298,7 @@ type User {
   firstName: String
   id: String!
   lastName: String
+  listings(orderBy: [ListingOrderByInput!], skip: Float, take: Float, where: ListingWhereInput): [Listing!]!
   roles: JSON!
   trips(orderBy: [TripOrderByInput!], skip: Float, take: Float, where: TripWhereInput): [Trip!]!
   updatedAt: DateTime!
@@ -282,6 +309,7 @@ type User {
 input UserCreateInput {
   firstName: String
   lastName: String
+  listings: ListingCreateNestedManyWithoutUsersInput
   password: String!
   roles: JSON!
   trips: TripCreateNestedManyWithoutUsersInput
@@ -310,6 +338,7 @@ input UserOrderByInput {
 input UserUpdateInput {
   firstName: String
   lastName: String
+  listings: ListingUpdateManyWithoutUsersInput
   password: String
   roles: JSON
   trips: TripUpdateManyWithoutUsersInput
@@ -321,6 +350,7 @@ input UserWhereInput {
   firstName: StringNullableFilter
   id: StringFilter
   lastName: StringNullableFilter
+  listings: ListingListRelationFilter
   trips: TripListRelationFilter
   username: StringFilter
   wishlists: WishlistListRelationFilter

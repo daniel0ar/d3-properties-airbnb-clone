@@ -32,7 +32,7 @@ const ListingCreated = () => {
       title,
       description,
       price,
-      listingCreatedBy: userInfo?.id,
+      listingCreatedBy: {id: userInfo?.id},
     });
   }, [userInfo, locationType, placeType, mapData, locationData, placeSpace, placeAmeneties, photos, title, description])
 
