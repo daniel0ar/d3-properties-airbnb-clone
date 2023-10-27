@@ -61,7 +61,7 @@ class ListingOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  listingCreatedBy?: SortOrder;
+  listings?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -106,6 +106,17 @@ class ListingOrderByInput {
     nullable: true,
   })
   photos?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  placeAmeneties?: SortOrder;
 
   @ApiProperty({
     required: false,
