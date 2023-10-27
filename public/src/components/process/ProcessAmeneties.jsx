@@ -3,16 +3,16 @@ import { useAppStore } from "airbnb/store/store";
 import React from "react";
 
 const ProcessAmeneties = () => {
-  const { placeAmenities, setPlaceAmenities } = useAppStore();
+  const { placeAmeneties, setplaceAmeneties } = useAppStore();
 
-  const addAmenity = (name) => setPlaceAmenities([...placeAmenities, name])
+  const addAmenity = (name) => setplaceAmeneties([...placeAmeneties, name])
 
   const removeAmenity = (name) => {
-    const index = placeAmenities.findIndex((a) => a === name);
+    const index = placeAmeneties.findIndex((a) => a === name);
     if (index !== -1) {
-      const clonedAmenities = [...placeAmenities];
+      const clonedAmenities = [...placeAmeneties];
       clonedAmenities.splice(index, 1);
-      setPlaceAmenities(clonedAmenities);
+      setplaceAmeneties(clonedAmenities);
     }
   }
 
@@ -39,8 +39,8 @@ const ProcessAmeneties = () => {
                   data.map(({ name, svgPath }) => (
                     <button
                       key={name}
-                      className={`flex flex-col justify-start font-semibold border border-gray-300 rounded-md p-3 hover:border-gray-950 transition-all duration-300 ${placeAmenities?.includes(name) && "border-gray-950 bg-gray-50"}`}
-                      onClick={() => placeAmenities?.includes(name) ? removeAmenity(name) : addAmenity(name)}>
+                      className={`flex flex-col justify-start font-semibold border border-gray-300 rounded-md p-3 hover:border-gray-950 transition-all duration-300 ${placeAmeneties?.includes(name) && "border-gray-950 bg-gray-50"}`}
+                      onClick={() => placeAmeneties?.includes(name) ? removeAmenity(name) : addAmenity(name)}>
                       {svgPath}
                       <span className="text-d3prop-light-black font-medium">{name}</span>
                     </button>

@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import NavigationEvents from 'airbnb/components/common/NavigationEvents';
 const inter = Inter({subsets:["latin"]});
 
 function RootLayout({ children }) {
@@ -15,6 +17,9 @@ function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         {children}
+        <Suspense fallback={null}>
+          <NavigationEvents></NavigationEvents>
+        </Suspense>
       </body>
     </html>
   )

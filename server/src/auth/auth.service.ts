@@ -80,7 +80,7 @@ export class AuthService {
         password,
         firstName,
         lastName,
-        roles: ["users"],
+        roles: ["user"],
       },
     });
 

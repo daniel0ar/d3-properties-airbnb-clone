@@ -1,10 +1,40 @@
+import { createListingApi } from "airbnb/lib/lisitng";
+import { useAppStore } from "airbnb/store/store";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import Confetti from "react-confetti";
 
 const ListingCreated = () => {
 
   const router = useRouter();
+  const {
+    userInfo,
+    locationType,
+    placeType,
+    mapData,
+    locationData,
+    placeSpace,
+    placeAmeneties,
+    photos,
+    title,
+    description,
+    price, } = useAppStore();
+
+  useEffect(() => {
+    createListingApi({
+      locationType: locationType.name,
+      placeType: placeType.title,
+      mapData,
+      locationData,
+      placeSpace,
+      placeAmeneties,
+      photos,
+      title,
+      description,
+      price,
+      listingCreatedBy: userInfo?.id,
+    });
+  }, [userInfo, locationType, placeType, mapData, locationData, placeSpace, placeAmeneties, photos, title, description])
 
   return (
     <div className="flex flex-col gap-5 items-center justify-center h-full">
@@ -21,8 +51,8 @@ const ListingCreated = () => {
             View your Listings
           </button>
         </div>
-        <Confetti 
-          width={window.innerWidth} 
+        <Confetti
+          width={window.innerWidth}
           height={window.innerHeight}
           numberOfPieces={200}
           recycle={false}
