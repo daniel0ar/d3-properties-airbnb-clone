@@ -15,6 +15,7 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { ListingListRelationFilter } from "../../listing/base/ListingListRelationFilter";
 import { TripListRelationFilter } from "../../trip/base/TripListRelationFilter";
 import { WishlistListRelationFilter } from "../../wishlist/base/WishlistListRelationFilter";
 
@@ -52,6 +53,18 @@ class UserWhereInput {
     nullable: true,
   })
   lastName?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ListingListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => ListingListRelationFilter)
+  @IsOptional()
+  @Field(() => ListingListRelationFilter, {
+    nullable: true,
+  })
+  listings?: ListingListRelationFilter;
 
   @ApiProperty({
     required: false,

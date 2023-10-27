@@ -54,16 +54,29 @@ export class ListingControllerBase {
   })
   async create(@common.Body() data: ListingCreateInput): Promise<Listing> {
     return await this.service.create({
-      data: data,
+      data: {
+        ...data,
+
+        listingCreatedBy: {
+          connect: data.listingCreatedBy,
+        },
+      },
       select: {
         createdAt: true,
         description: true,
         id: true,
-        listingCreatedBy: true,
+
+        listingCreatedBy: {
+          select: {
+            id: true,
+          },
+        },
+
         locationData: true,
         locationType: true,
         mapData: true,
         photos: true,
+        placeAmeneties: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -93,11 +106,18 @@ export class ListingControllerBase {
         createdAt: true,
         description: true,
         id: true,
-        listingCreatedBy: true,
+
+        listingCreatedBy: {
+          select: {
+            id: true,
+          },
+        },
+
         locationData: true,
         locationType: true,
         mapData: true,
         photos: true,
+        placeAmeneties: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -128,11 +148,18 @@ export class ListingControllerBase {
         createdAt: true,
         description: true,
         id: true,
-        listingCreatedBy: true,
+
+        listingCreatedBy: {
+          select: {
+            id: true,
+          },
+        },
+
         locationData: true,
         locationType: true,
         mapData: true,
         photos: true,
+        placeAmeneties: true,
         placeSpace: true,
         placeType: true,
         price: true,
@@ -167,16 +194,29 @@ export class ListingControllerBase {
     try {
       return await this.service.update({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          listingCreatedBy: {
+            connect: data.listingCreatedBy,
+          },
+        },
         select: {
           createdAt: true,
           description: true,
           id: true,
-          listingCreatedBy: true,
+
+          listingCreatedBy: {
+            select: {
+              id: true,
+            },
+          },
+
           locationData: true,
           locationType: true,
           mapData: true,
           photos: true,
+          placeAmeneties: true,
           placeSpace: true,
           placeType: true,
           price: true,
@@ -215,11 +255,18 @@ export class ListingControllerBase {
           createdAt: true,
           description: true,
           id: true,
-          listingCreatedBy: true,
+
+          listingCreatedBy: {
+            select: {
+              id: true,
+            },
+          },
+
           locationData: true,
           locationType: true,
           mapData: true,
           photos: true,
+          placeAmeneties: true,
           placeSpace: true,
           placeType: true,
           price: true,
@@ -262,6 +309,7 @@ export class ListingControllerBase {
           },
         },
 
+        tripInfo: true,
         updatedAt: true,
 
         user: {
