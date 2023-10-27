@@ -14,11 +14,12 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDate,
   IsString,
+  ValidateNested,
   IsOptional,
   IsInt,
-  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { User } from "../../user/base/User";
 import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
@@ -52,15 +53,12 @@ class Listing {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: String,
+    required: true,
+    type: () => User,
   })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  listingCreatedBy!: string | null;
+  @ValidateNested()
+  @Type(() => User)
+  listingCreatedBy?: User;
 
   @ApiProperty({
     required: true,
@@ -93,6 +91,13 @@ class Listing {
     nullable: true,
   })
   photos!: JsonValue;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  placeAmeneties!: JsonValue;
 
   @ApiProperty({
     required: true,

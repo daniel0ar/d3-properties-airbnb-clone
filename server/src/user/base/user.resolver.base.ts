@@ -26,6 +26,8 @@ import { UserCountArgs } from "./UserCountArgs";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { User } from "./User";
+import { ListingFindManyArgs } from "../../listing/base/ListingFindManyArgs";
+import { Listing } from "../../listing/base/Listing";
 import { TripFindManyArgs } from "../../trip/base/TripFindManyArgs";
 import { Trip } from "../../trip/base/Trip";
 import { WishlistFindManyArgs } from "../../wishlist/base/WishlistFindManyArgs";
@@ -134,6 +136,26 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Listing], { name: "listings" })
+  @nestAccessControl.UseRoles({
+    resource: "Listing",
+    action: "read",
+    possession: "any",
+  })
+  async resolveFieldListings(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: ListingFindManyArgs
+  ): Promise<Listing[]> {
+    const results = await this.service.findListings(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

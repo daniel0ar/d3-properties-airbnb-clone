@@ -5,11 +5,12 @@ import {
   SimpleForm,
   EditProps,
   TextInput,
-  PasswordInput,
-  SelectArrayInput,
   ReferenceArrayInput,
+  SelectArrayInput,
+  PasswordInput,
 } from "react-admin";
 
+import { ListingTitle } from "../listing/ListingTitle";
 import { TripTitle } from "../trip/TripTitle";
 import { WishlistTitle } from "../wishlist/WishlistTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
@@ -20,6 +21,14 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
       <SimpleForm>
         <TextInput label="First Name" source="firstName" />
         <TextInput label="Last Name" source="lastName" />
+        <ReferenceArrayInput
+          source="listings"
+          reference="Listing"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={ListingTitle} />
+        </ReferenceArrayInput>
         <PasswordInput label="Password" source="password" />
         <SelectArrayInput
           source="roles"

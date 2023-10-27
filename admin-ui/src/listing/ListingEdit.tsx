@@ -5,11 +5,14 @@ import {
   SimpleForm,
   EditProps,
   TextInput,
+  ReferenceInput,
+  SelectInput,
   NumberInput,
   ReferenceArrayInput,
   SelectArrayInput,
 } from "react-admin";
 
+import { UserTitle } from "../user/UserTitle";
 import { TripTitle } from "../trip/TripTitle";
 import { WishlistTitle } from "../wishlist/WishlistTitle";
 
@@ -18,9 +21,16 @@ export const ListingEdit = (props: EditProps): React.ReactElement => {
     <Edit {...props}>
       <SimpleForm>
         <TextInput label="description" multiline source="description" />
-        <TextInput label="listingCreatedBy" source="listingCreatedBy" />
+        <ReferenceInput
+          source="listingCreatedBy.id"
+          reference="User"
+          label="listingCreatedBy"
+        >
+          <SelectInput optionText={UserTitle} />
+        </ReferenceInput>
         <div />
         <TextInput label="locationType" source="locationType" />
+        <div />
         <div />
         <div />
         <div />

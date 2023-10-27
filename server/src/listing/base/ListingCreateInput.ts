@@ -11,12 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, IsInt, ValidateNested } from "class-validator";
+import { IsString, ValidateNested, IsOptional, IsInt } from "class-validator";
+import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+import { Type } from "class-transformer";
 import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
 import { TripCreateNestedManyWithoutListingsInput } from "./TripCreateNestedManyWithoutListingsInput";
-import { Type } from "class-transformer";
 import { WishlistCreateNestedManyWithoutListingsInput } from "./WishlistCreateNestedManyWithoutListingsInput";
 
 @InputType()
@@ -30,15 +31,13 @@ class ListingCreateInput {
   description!: string;
 
   @ApiProperty({
-    required: false,
-    type: String,
+    required: true,
+    type: () => UserWhereUniqueInput,
   })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  listingCreatedBy?: string | null;
+  @ValidateNested()
+  @Type(() => UserWhereUniqueInput)
+  @Field(() => UserWhereUniqueInput)
+  listingCreatedBy!: UserWhereUniqueInput;
 
   @ApiProperty({
     required: true,
@@ -71,6 +70,13 @@ class ListingCreateInput {
     nullable: true,
   })
   photos?: InputJsonValue;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  placeAmeneties!: InputJsonValue;
 
   @ApiProperty({
     required: true,
