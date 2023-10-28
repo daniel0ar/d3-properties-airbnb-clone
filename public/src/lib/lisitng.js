@@ -1,4 +1,5 @@
-import { createUrl, post } from "./http"
+import qs from "querystring";
+import { createUrl, post, get } from "./http"
 
 export const createListingApi = async (listingData) => {
     let result = null;
@@ -14,3 +15,14 @@ export const createListingApi = async (listingData) => {
         return err
     });
 }
+
+export const getAllListingsAPI = async () => {
+    
+    const result = await get((createUrl(`/api/listings`)));
+
+    if (!result) {
+        alert("Could not get all listings!");
+        return [];
+    }
+    return result.data;
+};
