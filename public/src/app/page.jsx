@@ -32,7 +32,6 @@ const page = () => {
     <div className="max-h-[100vh] h-[100vh]">
       <Navbar></Navbar>
       <div className="relative flex items-center justify-center">
-        {/* TODO: Fix scroll horizontal*/}
         <div className="w-[85vw] overflow-auto no-scrollbar scroll-smooth mt-3 px-10" ref={ref}>
           <ul className="flex gap-5 h-full">
             {listingTypes.map((data) => (

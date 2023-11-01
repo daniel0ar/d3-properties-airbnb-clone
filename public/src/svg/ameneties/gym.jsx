@@ -6,16 +6,10 @@ export default function Gym() {
       id="l_d_5591"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_5592">
         <clipPath id="__lottie_element_2286">
@@ -36,7 +30,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1,-6 C-1,-6 1,-6 1,-6 C1.5520000457763672,-6 2,-5.552000045776367 2,-5 C2,-5 2,5 2,5 C2,5.552000045776367 1.5520000457763672,6 1,6 C1,6 -1,6 -1,6 C-1.5520000457763672,6 -2,5.552000045776367 -2,5 C-2,5 -2,-5 -2,-5 C-2,-5.552000045776367 -1.5520000457763672,-6 -1,-6z"
@@ -49,7 +43,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1,-10 C-1,-10 1,-10 1,-10 C1.5520000457763672,-10 2,-9.552000045776367 2,-9 C2,-9 2,9 2,9 C2,9.552000045776367 1.5520000457763672,10 1,10 C1,10 -1,10 -1,10 C-1.5520000457763672,10 -2,9.552000045776367 -2,9 C-2,9 -2,-9 -2,-9 C-2,-9.552000045776367 -1.5520000457763672,-10 -1,-10z"
@@ -62,7 +56,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1,-10 C-1,-10 1,-10 1,-10 C1.5520000457763672,-10 2,-9.552000045776367 2,-9 C2,-9 2,9 2,9 C2,9.552000045776367 1.5520000457763672,10 1,10 C1,10 -1,10 -1,10 C-1.5520000457763672,10 -2,9.552000045776367 -2,9 C-2,9 -2,-9 -2,-9 C-2,-9.552000045776367 -1.5520000457763672,-10 -1,-10z"
@@ -75,7 +69,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1,-6 C-1,-6 1,-6 1,-6 C1.5520000457763672,-6 2,-5.552000045776367 2,-5 C2,-5 2,5 2,5 C2,5.552000045776367 1.5520000457763672,6 1,6 C1,6 -1,6 -1,6 C-1.5520000457763672,6 -2,5.552000045776367 -2,5 C-2,5 -2,-5 -2,-5 C-2,-5.552000045776367 -1.5520000457763672,-6 -1,-6z"
@@ -88,7 +82,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1.5,0 C-1.5,0 1.5,0 1.5,0"
@@ -101,7 +95,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-5,0 C-5,0 5,0 5,0"
@@ -114,7 +108,7 @@ export default function Gym() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-1.5,0 C-1.5,0 1.5,0 1.5,0"

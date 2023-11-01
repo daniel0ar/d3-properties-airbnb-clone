@@ -6,16 +6,10 @@ export default function Workplace() {
       id="l_d_5066"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_5067">
         <clipPath id="__lottie_element_2074">
@@ -36,7 +30,7 @@ export default function Workplace() {
                 strokeLinecap="butt"
                 strokeLinejoin="round"
                 fillOpacity={0}
-                stroke="rgb(34,34,34)"
+                stroke="currentColor"
                 strokeOpacity={1}
                 strokeWidth={2}
                 d=" M-15,0 C-15,0 15,0 15,0"
@@ -48,7 +42,7 @@ export default function Workplace() {
                 strokeLinecap="butt"
                 strokeLinejoin="round"
                 fillOpacity={0}
-                stroke="rgb(34,34,34)"
+                stroke="currentColor"
                 strokeOpacity={1}
                 strokeWidth={2}
                 d=" M0,7 C0,7 0,-7 0,-7"
@@ -60,7 +54,7 @@ export default function Workplace() {
                 strokeLinecap="butt"
                 strokeLinejoin="round"
                 fillOpacity={0}
-                stroke="rgb(34,34,34)"
+                stroke="currentColor"
                 strokeOpacity={1}
                 strokeWidth={2}
                 d=" M0,7 C0,7 0,-7 0,-7"
@@ -73,7 +67,7 @@ export default function Workplace() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-12,-5.5 C-12,-5.5 12,-5.5 12,-5.5 C12,-5.5 12,2.5 12,2.5 C12,4.1570000648498535 10.656999588012695,5.5 9,5.5 C9,5.5 -9,5.5 -9,5.5 C-10.656999588012695,5.5 -12,4.1570000648498535 -12,2.5 C-12,2.5 -12,-5.5 -12,-5.5z"
@@ -85,7 +79,7 @@ export default function Workplace() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0,3 C0,3 0,-3 0,-3"
@@ -97,7 +91,7 @@ export default function Workplace() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-2,-3.5 C-2,-3.5 2,-3.5 2,-3.5 C2,-3.5 4,3.5 4,3.5 C4,3.5 -4,3.5 -4,3.5 C-4,3.5 -2,-3.5 -2,-3.5z"
@@ -109,7 +103,7 @@ export default function Workplace() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-2.5,-2.5 C-2.5,-2.5 2.5,-2.5 2.5,-2.5 C2.5,-2.5 2.5,2.5 2.5,2.5 C2.5,2.5 -2.5,2.5 -2.5,2.5 C-2.5,2.5 -2.5,-2.5 -2.5,-2.5z"
@@ -125,7 +119,7 @@ export default function Workplace() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0.8960000276565552,2.0139999389648438 C0.8960000276565552,2.0139999389648438 -0.8960000276565552,-2.0139999389648438 -0.8960000276565552,-2.0139999389648438"

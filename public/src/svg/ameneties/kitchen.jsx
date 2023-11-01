@@ -6,16 +6,10 @@ export default function Kitchen() {
       id="l_d_4779"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_4780">
         <clipPath id="__lottie_element_1974">
@@ -57,7 +51,7 @@ export default function Kitchen() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-12,-13 C-12,-13 12,-13 12,-13 C12.552000045776367,-13 13,-12.552000045776367 13,-12 C13,-12 13,12 13,12 C13,12.552000045776367 12.552000045776367,13 12,13 C12,13 -12,13 -12,13 C-12.552000045776367,13 -13,12.552000045776367 -13,12 C-13,12 -13,-12 -13,-12 C-13,-12.552000045776367 -12.552000045776367,-13 -12,-13z"
@@ -70,7 +64,7 @@ export default function Kitchen() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M13,0 C13,0 -13,0 -13,0"
@@ -79,7 +73,6 @@ export default function Kitchen() {
           <g id="l_d_4867" opacity={1} transform="matrix(1,0,0,1,49,31)">
             <path
               id="l_d_4868"
-              fill="rgb(0,0,0)"
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -87,7 +80,6 @@ export default function Kitchen() {
           <g id="l_d_4869" opacity={1} transform="matrix(1,0,0,1,43,31)">
             <path
               id="l_d_4870"
-              fill="rgb(0,0,0)"
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -95,7 +87,6 @@ export default function Kitchen() {
           <g id="l_d_4871" opacity={1} transform="matrix(1,0,0,1,37,31)">
             <path
               id="l_d_4872"
-              fill="rgb(0,0,0)"
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -103,7 +94,6 @@ export default function Kitchen() {
           <g id="l_d_4873" opacity={1} transform="matrix(1,0,0,1,31,31)">
             <path
               id="l_d_4874"
-              fill="rgb(0,0,0)"
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -230,7 +220,7 @@ export default function Kitchen() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-9,-5 C-9,-5 9,-5 9,-5 C9,-5 9,5 9,5 C9,5 -9,5 -9,5 C-9,5 -9,-5 -9,-5z"
@@ -243,7 +233,7 @@ export default function Kitchen() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M13,0 C13,0 -13,0 -13,0"

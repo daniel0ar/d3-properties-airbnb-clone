@@ -6,48 +6,42 @@ export default function Parking() {
       id="l_d_4929"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_4930">
         <clipPath id="__lottie_element_2025">
           <rect id="l_d_4933" width={45} height={45} x={0} y={0} />
         </clipPath>
         <clipPath id="__lottie_element_2027">
-          <path id="l_d_4936" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4937" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4936" clipRule="nonzero" />
+          <path id="l_d_4937" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2030">
-          <path id="l_d_4944" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4945" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4944" clipRule="nonzero" />
+          <path id="l_d_4945" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2033">
-          <path id="l_d_4952" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4953" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4952" clipRule="nonzero" />
+          <path id="l_d_4953" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2036">
-          <path id="l_d_4960" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4961" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4960" clipRule="nonzero" />
+          <path id="l_d_4961" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2039">
-          <path id="l_d_4968" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4969" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4968" clipRule="nonzero" />
+          <path id="l_d_4969" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2042">
-          <path id="l_d_4976" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4977" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4976" clipRule="nonzero" />
+          <path id="l_d_4977" clipRule="nonzero" />
         </clipPath>
         <clipPath id="__lottie_element_2045">
-          <path id="l_d_4984" fill="#ffffff" clipRule="nonzero" />
-          <path id="l_d_4985" fill="#ffffff" clipRule="nonzero" />
+          <path id="l_d_4984" clipRule="nonzero" />
+          <path id="l_d_4985" clipRule="nonzero" />
         </clipPath>
       </defs>
       <g id="l_d_4931" clipPath="url(#__lottie_element_2025)">
@@ -64,7 +58,7 @@ export default function Parking() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-2,-2 C-2,-2 2,-2 2,-2 C2,-2 2,1 2,1 C2,1.5520000457763672 1.5520000457763672,2 1,2 C1,2 -1,2 -1,2 C-1.5520000457763672,2 -2,1.5520000457763672 -2,1 C-2,1 -2,-2 -2,-2 C-2,-2 -2,-2 -2,-2z"
@@ -77,7 +71,7 @@ export default function Parking() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-2,-2 C-2,-2 2,-2 2,-2 C2,-2 2,1 2,1 C2,1.5520000457763672 1.5520000457763672,2 1,2 C1,2 -1,2 -1,2 C-1.5520000457763672,2 -2,1.5520000457763672 -2,1 C-2,1 -2,-2 -2,-2 C-2,-2 -2,-2 -2,-2z"
@@ -97,7 +91,7 @@ export default function Parking() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-9,-5 C-9,-5 9,-5 9,-5 C11.208999633789062,-5 13,-3.2090001106262207 13,-1 C13,-1 13,4 13,4 C13,4.552000045776367 12.552000045776367,5 12,5 C12,5 -12,5 -12,5 C-12.552000045776367,5 -13,4.552000045776367 -13,4 C-13,4 -13,-1 -13,-1 C-13,-3.2090001106262207 -11.208999633789062,-5 -9,-5z"
@@ -106,7 +100,7 @@ export default function Parking() {
           <g id="l_d_4996" opacity={1} transform="matrix(1,0,0,1,49,43)">
             <path
               id="l_d_4997"
-              fill="rgb(34,34,34)"
+            
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -114,7 +108,7 @@ export default function Parking() {
           <g id="l_d_4998" opacity={1} transform="matrix(1,0,0,1,31,43)">
             <path
               id="l_d_4999"
-              fill="rgb(34,34,34)"
+            
               fillOpacity={1}
               d=" M0,-1 C0.5519999861717224,-1 1,-0.5519999861717224 1,0 C1,0.5519999861717224 0.5519999861717224,1 0,1 C-0.5519999861717224,1 -1,0.5519999861717224 -1,0 C-1,-0.5519999861717224 -0.5519999861717224,-1 0,-1z"
             />
@@ -126,7 +120,7 @@ export default function Parking() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-7.307000160217285,-4 C-7.307000160217285,-4 7.307000160217285,-4 7.307000160217285,-4 C7.723999977111816,-4 8.097000122070312,-3.740999937057495 8.243000030517578,-3.3510000705718994 C8.243000030517578,-3.3510000705718994 11,4 11,4 C11,4 11,4 11,4 C11,4 -11,4 -11,4 C-11,4 -8.243000030517578,-3.3510000705718994 -8.243000030517578,-3.3510000705718994 C-8.097000122070312,-3.740999937057495 -7.723999977111816,-4 -7.307000160217285,-4z"
@@ -135,7 +129,7 @@ export default function Parking() {
           <g id="l_d_5002" opacity={1} transform="matrix(1,0,0,1,27.5,36)">
             <path
               id="l_d_5003"
-              fill="rgb(34,34,34)"
+            
               fillOpacity={1}
               d=" M-1.5,-1 C-1.5,-1 1.5,-1 1.5,-1 C1.5,-1 1.5,1 1.5,1 C1.5,1 -1.5,1 -1.5,1 C-1.5,1 -1.5,-1 -1.5,-1z"
             />
@@ -143,7 +137,7 @@ export default function Parking() {
           <g id="l_d_5004" opacity={1} transform="matrix(1,0,0,1,52.5,36)">
             <path
               id="l_d_5005"
-              fill="rgb(34,34,34)"
+            
               fillOpacity={1}
               d=" M-1.5,-1 C-1.5,-1 1.5,-1 1.5,-1 C1.5,-1 1.5,1 1.5,1 C1.5,1 -1.5,1 -1.5,1 C-1.5,1 -1.5,-1 -1.5,-1z"
             />
@@ -155,7 +149,7 @@ export default function Parking() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-6,0 C-6,0 6,0 6,0"

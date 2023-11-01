@@ -6,16 +6,10 @@ export default function FirstAid() {
       id="l_d_6095"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_6096">
         <clipPath id="__lottie_element_2514">
@@ -73,7 +67,7 @@ export default function FirstAid() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-10,-12 C-10,-12 10,-12 10,-12 C12.208999633789062,-12 14,-10.208999633789062 14,-8 C14,-8 14,8 14,8 C14,10.208999633789062 12.208999633789062,12 10,12 C10,12 -10,12 -10,12 C-12.208999633789062,12 -14,10.208999633789062 -14,8 C-14,8 -14,-8 -14,-8 C-14,-10.208999633789062 -12.208999633789062,-12 -10,-12z"
@@ -93,7 +87,7 @@ export default function FirstAid() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-2,2 C-2.062000036239624,2.875 -2,6 -2,6 C-2,6 2,6 2,6 C2,6 2,2 2,2 C2,2 6,2 6,2 C6,2 6,-2 6,-2 C6,-2 2,-2 2,-2 C2,-2 2,-6 2,-6 C2,-6 -2,-6 -2,-6 C-2,-6 -2,-2 -2,-2 C-2,-2 -6,-2 -6,-2 C-6,-2 -6,2 -6,2 C-6,2 -3,1.937999963760376 -2,2z"

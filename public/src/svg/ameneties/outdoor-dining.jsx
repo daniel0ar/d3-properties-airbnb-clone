@@ -6,16 +6,10 @@ export default function OutdoorDining() {
       id="l_d_5303"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      // viewBox="0 0 45 45"
-      width={45}
-      height={45}
+      viewBox="-5 0 45 45"
+      width="100%"
+      fill="currentColor"
       preserveAspectRatio="xMidYMid meet"
-      style={{
-        // width: "100%",
-        // height: "100%",
-        transform: "translate3d(0px, 0px, 0px)",
-        contentVisibility: "visible",
-      }}
     >
       <defs id="l_d_5304">
         <clipPath id="__lottie_element_2164">
@@ -35,7 +29,7 @@ export default function OutdoorDining() {
               strokeLinecap="butt"
               strokeLinejoin="round"
               fillOpacity={0}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0,-4 C5.585000038146973,-4 10.406000137329102,-0.7300000190734863 12.652999877929688,4 C12.652999877929688,4 -12.652999877929688,4 -12.652999877929688,4 C-10.406000137329102,-0.7300000190734863 -5.585000038146973,-4 0,-4z"
@@ -55,7 +49,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0,-10.5 C0,-10.5 0,10.5 0,10.5"
@@ -75,7 +69,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0,8 C0,8 0,-8 0,-8"
@@ -88,7 +82,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M4,-3.5 C4,-3.5 -3,-3.5 -3,-3.5 C-3.552000045776367,-3.5 -4,-3.052000045776367 -4,-2.5 C-4,-2.5 -4,3.5 -4,3.5 C-4,3.5 -4,3.5 -4,3.5"
@@ -101,7 +95,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M0,8 C0,8 0,-8 0,-8"
@@ -114,7 +108,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-4,-3.5 C-4,-3.5 3,-3.5 3,-3.5 C3.552000045776367,-3.5 4,-3.052000045776367 4,-2.5 C4,-2.5 4,3.5 4,3.5 C4,3.5 4,3.5 4,3.5"
@@ -127,7 +121,7 @@ export default function OutdoorDining() {
               strokeLinejoin="miter"
               fillOpacity={0}
               strokeMiterlimit={4}
-              stroke="rgb(34,34,34)"
+              stroke="currentColor"
               strokeOpacity={1}
               strokeWidth={2}
               d=" M-9,0 C-9,0 9,0 9,0"
