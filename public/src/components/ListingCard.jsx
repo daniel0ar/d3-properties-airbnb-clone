@@ -3,18 +3,12 @@ import React, { useState } from "react";
 import { AmenetiesType } from "airbnb/data/Amenities";
 
 
-const ListingCard = ({ data }) => {
+const ListingCard = ({ data, isMyListing = false }) => {
 
   let counter = 0;
 
-  const getSvgFromName = (name) => {
-    AmenetiesType.forEach((a) => {
-      a.data.forEach((icon) => {
-        if (icon.name === name)
-          console.log(icon.svgPath)
-      })
-    })
-    return null
+  const handleDelete = () => {
+
   }
 
   return (
@@ -84,6 +78,14 @@ const ListingCard = ({ data }) => {
           ))
         }
       </div>
+      {
+        isMyListing && (
+          <button className="relative right-1.5 bg-d3prop-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-80"
+            onClick={handleDelete}>
+              X
+          </button>
+        )
+      }
     </div>
   );
 };
