@@ -71,8 +71,9 @@ const ListingCard = ({ data }) => {
                   const restingAmenities = data.placeAmeneties.length - 4;
                   return (
                     <span
+                      key="more"
                       title={`And ${restingAmenities} more`}
-                      class="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
+                      className="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
                     >
                       +{restingAmenities}
                     </span>

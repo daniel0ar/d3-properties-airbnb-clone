@@ -1,18 +1,19 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AirbnbLogo from 'airbnb/svg/airbnb-logo'
 import { FiGlobe } from 'react-icons/fi'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import Image from "next/image";
 import ContextMenu from "../common/ContextMenu";
-import {useAppStore} from "airbnb/store/store"
+import { useAppStore } from "airbnb/store/store"
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
 
-  const {setAuthModal, userInfo, setUserInfo} = useAppStore();
-
+  const { setAuthModal, userInfo, setUserInfo } = useAppStore();
+  const router = useRouter();
   const [isContesxtMenuVisible, setIsContesxtMenuVisible] = useState(false);
-  
+
   const contextMenuOptions = [{
     name: "Login",
     callBack: () => {
@@ -58,18 +59,21 @@ const Navbar = () => {
       name: "Trips",
       callBack: () => {
         setIsContesxtMenuVisible(false);
+        router.push("./trips");
       }
     },
     {
       name: "Wishlists",
       callBack: () => {
         setIsContesxtMenuVisible(false);
+        router.push("./wishlist");
       }
     },
     {
       name: "Manage Listings",
       callBack: () => {
         setIsContesxtMenuVisible(false);
+        router.push("./my-listings");
       }
     },
     {
@@ -98,31 +102,34 @@ const Navbar = () => {
         </div>
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">
-            <li className="cursor-pointer">
-              <span>Sell on D3 Properties</span>
-            </li>
+            {
+              userInfo &&
+              <li className="cursor-pointer" onClick={() => router.push("./new-listing")}>
+                <span>Sell on D3 Properties</span>
+              </li>
+            }
             <li className="cursor-pointer">
               <FiGlobe></FiGlobe>
             </li>
-            <li className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500" onClick={() => {setIsContesxtMenuVisible(!isContesxtMenuVisible)}}>
+            <li className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500" onClick={() => { setIsContesxtMenuVisible(!isContesxtMenuVisible) }}>
               <RxHamburgerMenu></RxHamburgerMenu>
               {
                 userInfo ? (
                   <span className="flex justify-center items-center bg-black text-white h-7 w-7 text-sm rounded-full">
                     {userInfo.firstName?.split("").shift().toUpperCase()}
                   </span>
-                ):
-                (
-                  <span>
-                    <Image src='/empty-profile.png' alt="profile" height={30} width={30}/>
-                  </span>
-                )
+                ) :
+                  (
+                    <span>
+                      <Image src='/empty-profile.png' alt="profile" height={30} width={30} />
+                    </span>
+                  )
               }
             </li>
           </ul>
         </div>
       </div>
-      { isContesxtMenuVisible && 
+      {isContesxtMenuVisible &&
         <ContextMenu
           contextMenu={isContesxtMenuVisible}
           setContextMenu={setIsContesxtMenuVisible}
@@ -130,7 +137,7 @@ const Navbar = () => {
             x: window.innerWidth - 250,
             y: 70
           }}
-          options={userInfo? authenticatedMenuOptions : contextMenuOptions}>
+          options={userInfo ? authenticatedMenuOptions : contextMenuOptions}>
         </ContextMenu>}
     </header>
   );

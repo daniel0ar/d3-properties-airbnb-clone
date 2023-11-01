@@ -16,10 +16,12 @@ import Description from "airbnb/components/process/Description";
 import StepThreeStarter from "airbnb/components/process/StepThreeStarter";
 import Price from "airbnb/components/process/Price";
 import ListingCreated from "airbnb/components/process/ListingCreated";
+import { useRouter } from "next/navigation";
 
 const page = () => {
 
   const [step, setStep] = useState(0);
+  const router = useRouter();
 
   const getComponent = () => {
     switch (step) {
@@ -68,7 +70,7 @@ const page = () => {
 
   return (<div className="grid grid-rows-new-listing h-[100vh]">
     <header className="flex items-center px-20 justify-between">
-      <div className="cursor-pointer">
+      <div className="cursor-pointer" onClick={() => router.push("./")}>
         <AirBnbLogoShort></AirBnbLogoShort>
       </div>
       {
