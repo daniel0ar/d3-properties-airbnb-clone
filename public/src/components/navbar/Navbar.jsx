@@ -96,7 +96,7 @@ const Navbar = () => {
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 shadow-[0_0_15px_-5px_rgba(0,0,0,0.15)]">
       <div className="flex items-center justify-between px-20">
         <div className="flex-grow basis-0">
-          <div className="w-max cursor-pointer">
+          <div className="w-max cursor-pointer" onClick={() => router.push('/')}>
             <AirbnbLogo></AirbnbLogo>
           </div>
         </div>

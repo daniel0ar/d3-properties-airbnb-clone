@@ -1,23 +1,61 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { AmenetiesType } from "airbnb/data/Amenities";
+import { AiFillDelete } from "react-icons/ai";
 
 
 const ListingCard = ({ data, isMyListing = false }) => {
 
   let counter = 0;
+  const [liked, setLiked] = useState(false);
+  
+  const handleAddToWishlist = () => {
+    setLiked(!liked);
+  }
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
 
   }
 
   return (
     <div className="shadow-lg p-4 rounded-lg">
-      <div className="aspect-square rounded-lg shadow-lg overflow-hidden">
+      <div className="relative aspect-square rounded-lg shadow-lg overflow-hidden">
         <img className="object-cover h-full w-full" src={data.photos[0]} />
+        {
+          isMyListing || (
+            <button
+              className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+              onClick={handleAddToWishlist}
+            >
+              <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill={liked ? 'currentColor' : 'rgb(86 86 86 / 0.7)'}
+                  aria-hidden="true"
+                  className="w-6 h-6"
+                >
+                  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"></path>
+                </svg>
+              </span>
+            </button>
+          )}
+          {
+            isMyListing && 
+            <button
+              className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xl font-medium uppercase text-gray-500 bg-white transition-all hover:bg-black hover:text-white active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+              onClick={handleDelete}
+            >
+              <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                <AiFillDelete></AiFillDelete>
+              </span>
+            </button>
+          }
       </div>
       <div className="w-full flex mt-2 mb-1">
-        <h5 className="w-3/4 block overflow-clip text-lg font-medium text-blue-gray-900">
+        <h5 className="w-3/4 whitespace-nowrap text-ellipsis overflow-clip text-lg font-medium text-blue-gray-900">
           {data.title}
         </h5>
         <p className="w-1/4 flex items-center justify-end gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
@@ -60,7 +98,7 @@ const ListingCard = ({ data, isMyListing = false }) => {
                     </span>
                   );
                 }
-                else if (icon.name === amenity && counter === 4){
+                else if (icon.name === amenity && counter === 4) {
                   counter = counter + 1;
                   const restingAmenities = data.placeAmeneties.length - 4;
                   return (
@@ -78,14 +116,6 @@ const ListingCard = ({ data, isMyListing = false }) => {
           ))
         }
       </div>
-      {
-        isMyListing && (
-          <button className="relative right-1.5 bg-d3prop-gradient py-3 mt-5 px-5 text-white text-base font-medium rounded-md cursor-pointer w-80"
-            onClick={handleDelete}>
-              X
-          </button>
-        )
-      }
     </div>
   );
 };
