@@ -5,7 +5,7 @@ import ListView from "airbnb/components/views/ListView";
 import MapView from "airbnb/components/views/MapView";
 import ViewSwitchBadge from "airbnb/components/views/ViewSwitchBadge";
 import { listingTypes } from "airbnb/data/listingTypes";
-import { getAllListingsAPI } from "airbnb/lib/lisitng";
+import { getAllListingsAPI, getUserListings } from "airbnb/lib/lisitng";
 import { useAppStore } from "airbnb/store/store";
 import React, { useEffect, useRef } from "react";
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi"
@@ -23,7 +23,7 @@ const page = () => {
     };
 
     getData();
-  }, []);
+  }, [setListings]);
 
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;

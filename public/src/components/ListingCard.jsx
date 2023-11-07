@@ -1,58 +1,99 @@
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AmenetiesType } from "airbnb/data/Amenities";
 import { AiFillDelete } from "react-icons/ai";
+import { useAppStore } from "airbnb/store/store"
+import { useRouter } from "next/navigation";
+import { addToWishlistAPI, removeFromWishlistAPI } from "airbnb/lib/lisitng";
 
 
-const ListingCard = ({ data, isMyListing = false }) => {
-
+const ListingCard = ({
+  data,
+  isMyListing = false,
+  isWishlist = false,
+  wishlistId = undefined,
+}) => {
   let counter = 0;
-  const [liked, setLiked] = useState(false);
-  
-  const handleAddToWishlist = () => {
-    setLiked(!liked);
+
+  const {
+    removeUserListing,
+    userInfo,
+    addToWishlist,
+    wishlists,
+    wishlistsPage,
+    setWishlistsPage,
+  } = useAppStore();
+
+  const [isWish, setIsWish ] = useState(isWishlist);
+
+  // const pathName = usePathName();
+  // const router = useRouter();
+
+  const handleAddToWishlist = async () => {
+    setIsWish(true);
+    wishlistId = await addToWishlistAPI(data.id, userInfo?.id).id;
+    addToWishlist(data.id);
+  };
+
+  const handleRemoveFromWishlist = async () => {
+    setIsWish(false);
+    await removeFromWishlistAPI(wishlistId);
+    const index = wishlistsPage.findIndex((list) => list.id === wishlistId);
+    if (index !== -1){
+      wishlistsPage.splice(index, 1);
+      setWishlistsPage(wishlistsPage);
+    }
   }
 
   const handleDelete = async () => {
+    const response = await deleteListingAPI(data.id);
+    if (response)
+      removeUserListing(data.id);
+  };
 
-  }
+  useEffect(() => {
+    if (wishlists?.includes(data.id)){
+      setIsWish(true);
+    }
+  });
 
   return (
     <div className="shadow-lg p-4 rounded-lg">
       <div className="relative aspect-square rounded-lg shadow-lg overflow-hidden">
         <img className="object-cover h-full w-full" src={data.photos[0]} />
-        {
-          isMyListing || (
-            <button
-              className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-              onClick={handleAddToWishlist}
-            >
-              <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill={liked ? 'currentColor' : 'rgb(86 86 86 / 0.7)'}
-                  aria-hidden="true"
-                  className="w-6 h-6"
-                >
-                  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"></path>
-                </svg>
-              </span>
-            </button>
-          )}
-          {
-            isMyListing && 
-            <button
-              className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xl font-medium uppercase text-gray-500 bg-white transition-all hover:bg-black hover:text-white active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="button"
-              onClick={handleDelete}
-            >
-              <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                <AiFillDelete></AiFillDelete>
-              </span>
-            </button>
-          }
+        {!isMyListing && userInfo && (
+          <button
+            className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xs font-medium uppercase text-red-500 transition-all hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (!isWish) handleAddToWishlist()
+              else handleRemoveFromWishlist();
+            }}
+          >
+            <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill={isWish ? "currentColor" : "rgb(86 86 86 / 0.7)"}
+                aria-hidden="true"
+                className="w-6 h-6 stroke-white stroke-2"
+              >
+                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"></path>
+              </svg>
+            </span>
+          </button>
+        )}
+        {isMyListing && (
+          <button
+            className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xl font-medium uppercase text-gray-500 bg-white transition-all hover:bg-black hover:text-white active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button"
+            onClick={handleDelete}
+          >
+            <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+              <AiFillDelete></AiFillDelete>
+            </span>
+          </button>
+        )}
       </div>
       <div className="w-full flex mt-2 mb-1">
         <h5 className="w-3/4 whitespace-nowrap text-ellipsis overflow-clip text-lg font-medium text-blue-gray-900">
@@ -75,46 +116,41 @@ const ListingCard = ({ data, isMyListing = false }) => {
           5.0
         </p>
       </div>
-      <p className="block text-gray-700">
-        {data.locationData?.place}
-      </p>
+      <p className="block text-gray-700">{data.locationData?.place}</p>
       <p className="block text-gray-700">
         <span className="font-bold">${data.price}</span> noche
       </p>
       <div className="inline-flex flex-wrap items-center gap-2 mt-8 group">
-        {
-          data.placeAmeneties?.map((amenity) => (
-            AmenetiesType.map((a) => (
-              a.data.map((icon) => {
-                if (icon.name === amenity && counter < 4) {
-                  counter = counter + 1;
-                  return (
-                    <span
-                      key={amenity}
-                      title={amenity}
-                      className="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
-                    >
-                      {icon.svgPath}
-                    </span>
-                  );
-                }
-                else if (icon.name === amenity && counter === 4) {
-                  counter = counter + 1;
-                  const restingAmenities = data.placeAmeneties.length - 4;
-                  return (
-                    <span
-                      key="more"
-                      title={`And ${restingAmenities} more`}
-                      className="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
-                    >
-                      +{restingAmenities}
-                    </span>
-                  )
-                }
-              })
-            ))
-          ))
-        }
+        {data.placeAmeneties?.map((amenity) =>
+          AmenetiesType.map((a) =>
+            a.data.map((icon) => {
+              if (icon.name === amenity && counter < 4) {
+                counter = counter + 1;
+                return (
+                  <span
+                    key={amenity}
+                    title={amenity}
+                    className="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
+                  >
+                    {icon.svgPath}
+                  </span>
+                );
+              } else if (icon.name === amenity && counter === 4) {
+                counter = counter + 1;
+                const restingAmenities = data.placeAmeneties.length - 4;
+                return (
+                  <span
+                    key="more"
+                    title={`And ${restingAmenities} more`}
+                    className="w-9 h-9 p-1 rounded-full border border-pink-500/5 bg-pink-500/5 text-pink-500 transition-colors hover:border-pink-500/10 hover:bg-pink-500/10 hover:!opacity-100 group-hover:opacity-70"
+                  >
+                    +{restingAmenities}
+                  </span>
+                );
+              }
+            })
+          )
+        )}
       </div>
     </div>
   );
