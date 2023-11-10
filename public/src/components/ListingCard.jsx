@@ -10,7 +10,7 @@ const ListingCard = ({
   data,
   isMyListing = false,
   isWishlist = false,
-  wishlistId = undefined,
+  _wishlistId = undefined,
 }) => {
   let counter = 0;
 
@@ -24,13 +24,15 @@ const ListingCard = ({
   } = useAppStore();
 
   const [isWish, setIsWish ] = useState(isWishlist);
+  const [wishlistId, setWishlistId] = useState(_wishlistId);
 
   // const pathName = usePathName();
   // const router = useRouter();
 
   const handleAddToWishlist = async () => {
     setIsWish(true);
-    wishlistId = await addToWishlistAPI(data.id, userInfo?.id).id;
+    const addedWishlist = await addToWishlistAPI(data.id, userInfo?.id);
+    setWishlistId(addedWishlist.id);
     addToWishlist(data.id);
   };
 
@@ -54,7 +56,7 @@ const ListingCard = ({
     if (wishlists?.includes(data.id)){
       setIsWish(true);
     }
-  });
+  }, [wishlists]);
 
   return (
     <div className="shadow-lg p-4 rounded-lg">

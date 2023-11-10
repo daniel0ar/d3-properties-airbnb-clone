@@ -33,7 +33,7 @@ const page = () => {
                 data={listing}
                 key={index}
                 isWishlist={true}
-                wishlistId={id}
+                _wishlistId={id}
               ></ListingCard>
             ))}
           </div>

@@ -40,7 +40,7 @@ const page = () => {
                 key={data.name}
                 className="w-max flex flex-col items-center justify-between h-16 cursor-pointer brightness-[4] text-gray-900 hover:filter-none"
               >
-                <span className="h-10 w-10 flex itmes-center justify-center">
+                <span className="h-10 w-10 flex items-center justify-center">
                   {data.svgPath}
                 </span>
                 <div className="text-xs font-semibold break-keep w-[inherit]">
