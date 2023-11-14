@@ -8,10 +8,13 @@ const ListingPhotos = () => {
 
   return (
     <div className="flex gap-5 flex-col">
-      <div className="relative w-full h-[60vh]">
+      <div className="relative w-full max-h-[60vh] overflow-hidden">
         <Image
           alt="listing"
-          fill
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }} // optional
           src={currentListing.photos[currentPhoto]}
         ></Image>
       </div>
