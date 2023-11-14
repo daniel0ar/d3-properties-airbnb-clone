@@ -82,3 +82,43 @@ export const removeFromWishlistAPI = async (id) => {
     }
     return result;
 }
+
+export const getListing = async (listingId) => {
+    const result = await get(createUrl(`/api/listings/${listingId}`));
+    if (!result) {
+        alert(`No listing found with id ${listingId}`)
+    }
+    return result.data;
+}
+
+export const addTrip = async (data) => {
+    const query = {
+        listing: {
+            id: data.listingId,
+        },
+        user: { id: data.userId },
+        tripInfo: data.tripInfo,
+    };
+    const result = await post(createUrl("/api/trips"), {...query}).catch((e) => console.log(e));
+    if (!result){
+        alert("Add trip failed");
+    } else {
+        return result;
+    }
+}
+
+export const getUserTrips = async (userId) => {
+    const query = qs.stringify({
+        where: {
+            user: { id: userId },
+        },
+        select: {
+            listing: true,
+        },
+    });
+    const result = (
+        await get(createUrl(`/api/trips?${query}`)).catch(() => null)
+    )?.data;
+    console.log({result});
+    return result;
+}

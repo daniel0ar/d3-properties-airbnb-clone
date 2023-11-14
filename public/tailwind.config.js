@@ -9,12 +9,12 @@ module.exports = {
     extend: {
       backgroundImage: {
         "d3prop-gradient":
-          "linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%)",
+          "linear-gradient(to right, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(1,131,157,1) 100%);",
         "d3prop-gradient-alt":
-          "linear-gradient(to left,#E61E4D 20%,#E31C5F 80%,#D70466 100%)",
+          "linear-gradient(to left, rgba(2,0,36,1) 20%, rgba(9,9,121,1) 80%, rgba(1,131,157,1) 100%);",
       },
       colors: {
-        "d3prop-theme-color": "#FF385C",
+        "d3prop-theme-color": "rgba(9,9,121,1)",
         "d3prop-light-black": "#222222",
         "d3prop-light-gray": "#717171",
       },

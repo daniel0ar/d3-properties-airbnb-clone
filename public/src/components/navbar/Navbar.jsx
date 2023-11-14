@@ -59,21 +59,21 @@ const Navbar = () => {
       name: "Trips",
       callBack: () => {
         setIsContesxtMenuVisible(false);
-        router.push("./trips");
+        router.push("/trips");
       }
     },
     {
       name: "Wishlists",
       callBack: () => {
         setIsContesxtMenuVisible(false);
-        router.push("./wishlist");
+        router.push("/wishlist");
       }
     },
     {
       name: "Manage Listings",
       callBack: () => {
         setIsContesxtMenuVisible(false);
-        router.push("./my-listings");
+        router.push("/my-listings");
       }
     },
     {

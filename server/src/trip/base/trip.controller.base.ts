@@ -104,6 +104,7 @@ export class TripControllerBase {
         listing: {
           select: {
             id: true,
+            title: true,
           },
         },
 
@@ -143,6 +144,7 @@ export class TripControllerBase {
         listing: {
           select: {
             id: true,
+            title: true,
           },
         },
 

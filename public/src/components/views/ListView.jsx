@@ -9,8 +9,6 @@ const ListView = () => {
     wishlistsPage } = useAppStore();
   
   useEffect(() => {
-    console.log(wishlists);
-    console.log(wishlistsPage);
     const getWishlists = async () => {
       if(userInfo) {
         const wishlists = await getUserWishlists(userInfo?.id);

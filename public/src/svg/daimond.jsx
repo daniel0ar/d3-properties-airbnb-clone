@@ -12,7 +12,7 @@ export default function Daimond() {
         display: "block",
         height: 48,
         width: 48,
-        fill: "rgb(227, 28, 95)",
+        fill: "rgba(9,9,121,1)",
         stroke: "currentcolor",
       }}
     >

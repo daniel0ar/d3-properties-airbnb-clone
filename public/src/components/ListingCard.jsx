@@ -3,7 +3,7 @@ import { AmenetiesType } from "airbnb/data/Amenities";
 import { AiFillDelete } from "react-icons/ai";
 import { useAppStore } from "airbnb/store/store"
 import { useRouter } from "next/navigation";
-import { addToWishlistAPI, removeFromWishlistAPI } from "airbnb/lib/lisitng";
+import { addToWishlistAPI, removeFromWishlistAPI, deleteListingAPI } from "airbnb/lib/lisitng";
 
 
 const ListingCard = ({
@@ -27,7 +27,7 @@ const ListingCard = ({
   const [wishlistId, setWishlistId] = useState(_wishlistId);
 
   // const pathName = usePathName();
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleAddToWishlist = async () => {
     setIsWish(true);
@@ -59,7 +59,11 @@ const ListingCard = ({
   }, [wishlists]);
 
   return (
-    <div className="shadow-lg p-4 rounded-lg">
+    <div className="shadow-lg p-4 rounded-lg cursor-pointer"
+      onClick={(e) => {
+        e.stopPropagation();
+        router.push(`/listing/${data.id}`);
+      }}>
       <div className="relative aspect-square rounded-lg shadow-lg overflow-hidden">
         <img className="object-cover h-full w-full" src={data.photos[0]} />
         {!isMyListing && userInfo && (
@@ -89,7 +93,10 @@ const ListingCard = ({
           <button
             className="!absolute top-4 right-4 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-full text-center align-middle font-sans text-xl font-medium uppercase text-gray-500 bg-white transition-all hover:bg-black hover:text-white active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
-            onClick={handleDelete}
+            onClick={(e)=> {
+              e.stopPropagation();
+              handleDelete();
+            }}
           >
             <span className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
               <AiFillDelete></AiFillDelete>

@@ -11,7 +11,7 @@ function AirBnbLogo() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs id="defs2" />
-      <g id="layer1" fill="#ffdd55">
+      <g id="layer1" fill="rgba(9,9,121,1)">
         <g
           aria-label="D3Properties"
           id="text236"

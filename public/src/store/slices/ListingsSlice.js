@@ -4,6 +4,7 @@ export const createListingSlice = (set, get) => ({
     userListings: [],
     wishlists: [],
     wishlistsPage: [],
+    currentListing: undefined,
     setListings: (listings) => set({ listings }),
     setIsMapView: () => set({ isMapView: ! get().isMapView }),
     setUserListings: (userListings) => set({ userListings }),
@@ -22,4 +23,5 @@ export const createListingSlice = (set, get) => ({
         set({ wishlists: lists });
     },
     setWishlistsPage: (wishlistsPage) => set({ wishlistsPage }),
+    setCurrentListing: (currentListing) => set({ currentListing }),
 });
