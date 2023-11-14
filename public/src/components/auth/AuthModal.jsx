@@ -45,7 +45,7 @@ const AuthModal = () => {
 
   return (
     <div className="relative z-50">
-      <div className="fixed inset-0 bg-gray-500 opacity-75 transition-opacity">
+      <div className="fixed inset-0 bg-[rgb(25,33,77,0.46)] transition-opacity">
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
@@ -76,7 +76,7 @@ const AuthModal = () => {
                     <FormInput type="password" name="password" placeholder="Password" value={password} setValue={setPassword}></FormInput>
                   </div>
                   }
-                  <button className="bg-d3prop-theme-color py-3 mt-5 w-full text-white font-medium rounded-md hover:bg-rose-600"
+                  <button className="bg-d3prop-theme-color py-3 mt-5 w-full text-white font-medium rounded-md hover:bg-blue-600"
                     onClick={userFound === null ? verifyEmail : userFound ? handleLogin : handleSignup}>Continue</button>
                   </div>
               </div>
