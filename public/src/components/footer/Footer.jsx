@@ -12,18 +12,18 @@ export default function Footer() {
   })
 
   return (
-    <div className="px-20 border-t border-t-gray-200 py-4 flex justify-between w-full text-sm z-50 bg-white items-center">
-      <ul className="flex gap-3 font-normal">
-        <li>&copy; 2023 D3Properties</li>
+    <footer className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6">
+      <ul className="flex gap-3 px-4 py-5 text-sm md:font-normal">
+        <span className="text-sm text-gray-500 sm:text-center">&copy; 2023 D3Properties</span>
         {renderedLinks}
       </ul>
-      <ul className="flex gap-4 font-medium">
+      <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500sm:mt-0 px-5 pb-5">
         <li className="flex items-center gap-2 cursor-pointer">
           <FiGlobe></FiGlobe>English
         </li>
-        <li className="cursor-pointer">$ USD</li>
-        <li className="flex items-center gap-2 cursor-pointer">Support & Resources <PiCaretUpBold></PiCaretUpBold></li>
+        <li className="hover:underline me-4 md:me-6">$ USD</li>
+        <li className="flex items-center hover:underline me-4 md:me-6">Support & Resources <PiCaretUpBold></PiCaretUpBold></li>
       </ul>
-    </div>
+    </footer>
   );
 }
