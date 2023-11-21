@@ -102,9 +102,87 @@ export class ListingControllerBase {
     type: errors.ForbiddenException,
   })
   async findMany(@common.Req() request: Request): Promise<Listing[]> {
-    const args = plainToClass(ListingFindManyArgs, request.query);
+    const {
+      userId,
+      beds,
+      guests,
+      bathrooms,
+      country,
+      startDate,
+      endDate,
+      locationType,
+    } = request.query;
+    const query: any = {
+      userId: undefined,
+      locationType: undefined,
+      placeSpace: {},
+      locationData: {},
+    };
+
+    if (userId) query.listingCreatedBy = { id: userId };
+    if (locationType) query.locationType = locationType;
+    if (beds) query.placeSpace = { path: ["beds"], gte: +beds };
+    if (bathrooms) query.placeSpace = { path: ["bathrooms"], gte: +bathrooms };
+    if (guests) query.placeSpace = { path: ["guests"], gte: +guests };
+    if (country) query.locationData = { path: ["country"], equals: country };
+
+    if (startDate && endDate) {
+      query.NOT = {
+        trips: {
+          some: {
+            OR: [
+              {
+                AND : [
+                  {
+                    tripInfo: {
+                      path: ["endDate"],
+                      gte: startDate,
+                    },
+                  },
+                  {
+                    tripInfo: {
+                      path: ["startDate"],
+                      lte: startDate,
+                    },
+                  },
+                ],
+              },
+              {
+                AND : [
+                  {
+                    tripInfo: {
+                      path: ["startDate"],
+                      lte: endDate,
+                    },
+                  },
+                  {
+                    tripInfo: {
+                      path: ["endDate"],
+                      gte: endDate,
+                    },
+                  },
+                ],
+              },
+            ],
+
+            /*
+            OR: [
+              {
+                endDate: { gte: startDate },
+                startDate: { lte: startDate },
+              },
+              {
+                startDate: { lte: endDate },
+                endDate: { gte: endDate },
+              },
+            ],*/
+          },
+        },
+      };
+    }
+    console.log(query);
     return this.service.findMany({
-      ...args,
+      where: query,
       select: {
         createdAt: true,
         description: true,

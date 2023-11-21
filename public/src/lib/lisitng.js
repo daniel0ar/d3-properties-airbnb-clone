@@ -16,9 +16,11 @@ export const createListingApi = async (listingData) => {
     });
 }
 
-export const getAllListingsAPI = async () => {
-    
-    const result = await get((createUrl(`/api/listings`)));
+export const getAllListingsAPI = async (params = {}) => {
+    const query = qs.stringify(params);
+    console.log('params:', params);
+
+    const result = await get((createUrl(`/api/listings?${query}`)));
 
     if (!result) {
         alert("Could not get all listings!");
@@ -29,7 +31,7 @@ export const getAllListingsAPI = async () => {
 
 export const getUserListings = async (userId) => {
     const query = qs.stringify({
-        where: {listingCreatedBy: {id: userId}},
+        where: { listingCreatedBy: { id: userId } },
     });
 
     const result = await get(createUrl(`/api/listings?${query}`));
@@ -50,7 +52,7 @@ export const deleteListingAPI = async (id) => {
 
 export const getUserWishlists = async (userId) => {
     const query = qs.stringify({
-        where:{
+        where: {
             user: { id: userId },
         },
         select: {
@@ -58,7 +60,7 @@ export const getUserWishlists = async (userId) => {
         },
     });
     const result = await get(createUrl(`api/wishlists?${query}`));
-    return result?.data; 
+    return result?.data;
 }
 
 export const addToWishlistAPI = async (id, userId) => {
@@ -67,7 +69,7 @@ export const addToWishlistAPI = async (id, userId) => {
         user: { id: userId },
     };
 
-    const result = await post(createUrl("api/wishlists"), {...query});
+    const result = await post(createUrl("api/wishlists"), { ...query });
 
     if (!result.data) {
         alert("Could not add to wishlist");
@@ -99,8 +101,8 @@ export const addTrip = async (data) => {
         user: { id: data.userId },
         tripInfo: data.tripInfo,
     };
-    const result = await post(createUrl("/api/trips"), {...query}).catch((e) => console.log(e));
-    if (!result){
+    const result = await post(createUrl("/api/trips"), { ...query }).catch((e) => console.log(e));
+    if (!result) {
         alert("Add trip failed");
     } else {
         return result;
@@ -119,6 +121,6 @@ export const getUserTrips = async (userId) => {
     const result = (
         await get(createUrl(`/api/trips?${query}`)).catch(() => null)
     )?.data;
-    console.log({result});
+    console.log({ result });
     return result;
 }

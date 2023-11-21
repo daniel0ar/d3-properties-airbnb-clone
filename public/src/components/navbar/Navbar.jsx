@@ -7,6 +7,8 @@ import Image from "next/image";
 import ContextMenu from "../common/ContextMenu";
 import { useAppStore } from "airbnb/store/store"
 import { useRouter } from "next/navigation";
+import Search from "./Search";
+import SearchModal from "./SearchModal";
 
 const Navbar = () => {
 
@@ -99,6 +101,10 @@ const Navbar = () => {
           <div className="w-max cursor-pointer" onClick={() => router.push('/')}>
             <AirbnbLogo></AirbnbLogo>
           </div>
+        </div>
+        <div>
+          <Search></Search>
+          <SearchModal></SearchModal>
         </div>
         <div className="flex-grow basis-0">
           <ul className="flex items-center justify-end gap-6 font-medium">

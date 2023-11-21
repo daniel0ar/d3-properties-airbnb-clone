@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/koolkishan/nextjs-airbnb-clone#readme",
   "dependencies": {
-    "qs": "^6.11.2"
+    "date-fns": "^2.30.0",
+    "qs": "^6.11.2",
+    "query-string": "^8.1.0",
+    "react-select": "^5.8.0",
+    "world-countries": "^5.0.0"
   }
 }
