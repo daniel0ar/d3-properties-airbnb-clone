@@ -7,7 +7,7 @@ const Search = () => {
   const { onOpen } = useAppStore();
 
   return (
-    <div onClick={onOpen} className="border w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
+    <div onClick={onOpen} className="border w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer inline-block">
       <div className="flex flex-row items-center justify-between">
         <div className="text-sm font-semibold px-6">Anywhere</div>
         <div className="hidden sm:block text-sm font-semibold px-6 border-x-2 flex-1 text-center">
