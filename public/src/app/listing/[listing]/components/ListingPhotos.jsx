@@ -8,7 +8,7 @@ const ListingPhotos = () => {
 
   return (
     <div className="flex gap-5 flex-col">
-      <div className="relative w-full max-h-[60vh] overflow-hidden">
+      <div className="relative w-full max-h-[60vh] rounded-xl overflow-hidden">
         <Image
           alt="listing"
           width={0}
@@ -23,7 +23,7 @@ const ListingPhotos = () => {
           {currentListing.photos.map((photo, index) => (
             <li
               key={photo}
-              className="relative w-48 h-32 cursor-pointer"
+              className="relative w-48 h-32 cursor-pointer rounded-lg overflow-hidden hover:brightness-75"
               onClick={() => setCurrentPhoto(index)}
             >
               <Image src={photo} alt="listing" fill></Image>
