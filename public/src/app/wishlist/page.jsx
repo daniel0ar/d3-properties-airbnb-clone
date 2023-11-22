@@ -25,26 +25,30 @@ const page = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="h-[82.5vh] flex justify-start items-start">
-        {wishlistsPage.length > 0 ? (
-          <div className="p-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-            {wishlistsPage?.map(({ listing, id }, index) => (
-              <ListingCard
-                data={listing}
-                key={index}
-                isWishlist={true}
-                _wishlistId={id}
-              ></ListingCard>
-            ))}
-          </div>
-        ) : (
-          <div className="flex items-center justify-center w-full h-full">
-            <h1>
-              No listing has been aded to your wishlist. Add some by clicking
-              the heart button
-            </h1>
-          </div>
-        )}
+      <div className="p-10">
+        <h1 className="text-3xl leading-normal font-semibold text-d3prop-light-black mb-4">Your wishlists</h1>
+        <p className="leading-normal mb-5">Here are your favourite places to visit nex. To delete a place simply click on the heart button.</p>
+        <div className="h-[82.5vh] flex justify-start items-start">
+          {wishlistsPage.length > 0 ? (
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+              {wishlistsPage?.map(({ listing, id }, index) => (
+                <ListingCard
+                  data={listing}
+                  key={index}
+                  isWishlist={true}
+                  _wishlistId={id}
+                ></ListingCard>
+              ))}
+            </div>
+          ) : (
+            <div className="flex items-center justify-center w-full h-full">
+              <h1>
+                No listing has been aded to your wishlist. Add some by clicking
+                the heart button
+              </h1>
+            </div>
+          )}
+        </div>
       </div>
       <Footer></Footer>
     </div>

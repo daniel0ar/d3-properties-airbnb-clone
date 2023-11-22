@@ -98,45 +98,45 @@ const Navbar = () => {
 
   return (
     <header className="w-full flex flex-col justify-center transition-all duration-300 h-20 shadow-[0_0_15px_-5px_rgba(0,0,0,0.15)]">
-      <nav class="bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
-        <div class="inline-flex">
+      <nav className="bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+        <div className="inline-flex">
           <div className="cursor-pointer" onClick={() => router.push("/")}>
-            <div class="hidden md:block">
+            <div className="hidden md:block">
               <AirBnbLogo></AirBnbLogo>
             </div>
-            <div class="block md:hidden">
+            <div className="block md:hidden">
               <AirBnbLogoShort></AirBnbLogoShort>
             </div>
           </div>
         </div>
-        <div class="flex-shrink flex-grow-0 justify-start px-2">
+        <div className="flex-shrink flex-grow-0 justify-start px-2">
           <Search></Search>
           <SearchModal></SearchModal>
         </div>
 
-        <div class="flex-initial">
-          <div class="flex justify-end items-center relative">
-            <div class="hidden sm:flex mr-4 items-center">
+        <div className="flex-initial">
+          <div className="flex justify-end items-center relative">
+            <div className="hidden sm:flex mr-4 items-center">
               <div
-                class="inline-block cursor-pointer py-2 px-3 hover:bg-gray-200 rounded-full"
+                className="inline-block cursor-pointer py-2 px-3 hover:bg-gray-200 rounded-full"
                 onClick={() => router.push("./new-listing")}
               >
-                <div class="flex items-center relative whitespace-nowrap">
+                <div className="flex items-center relative whitespace-nowrap">
                   Sell on D3 Properties
                 </div>
               </div>
-              <div class="block relative">
+              <div className="block relative">
                 <div
-                  class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full relative "
+                  className="inline-block py-2 px-3 hover:bg-gray-200 rounded-full relative "
                 >
-                  <div class="flex items-center h-5">
+                  <div className="flex items-center h-5">
                     <FiGlobe></FiGlobe>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="block">
+            <div className="block">
               <div
                 className="flex cursor-pointer items-center gap-2 border border-grey-300 py-2 px-3 rounded-full hover:shadow-xl transition-all duration-500"
                 onClick={() => {
