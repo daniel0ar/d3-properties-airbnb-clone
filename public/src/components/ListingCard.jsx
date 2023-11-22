@@ -52,6 +52,13 @@ const ListingCard = ({
       removeUserListing(data.id);
   };
 
+  const getRandomFloat = (min, max, decimals) => {
+    const str = (Math.random() * (max - min) + min).toFixed(
+      decimals,
+    );
+    return parseFloat(str);
+  }
+
   useEffect(() => {
     if (wishlists?.includes(data.id)){
       setIsWish(true);
@@ -122,14 +129,14 @@ const ListingCard = ({
               clipRule="evenodd"
             ></path>
           </svg>
-          5.0
+          {getRandomFloat(3,5,1)}
         </p>
       </div>
       <p className="block text-gray-700">{data.locationData?.place}</p>
       <p className="block text-gray-700">
         <span className="font-bold">${data.price}</span> noche
       </p>
-      <div className="inline-flex flex-wrap items-center gap-2 mt-8 group">
+      <div className="inline-flex flex-wrap items-center gap-2 mt-3 group">
         {data.placeAmeneties?.map((amenity) =>
           AmenetiesType.map((a) =>
             a.data.map((icon) => {
